@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --color-industrial-900: #0a0e17;
+  --color-industrial-800: #111827;
+  --color-industrial-700: #1f2937;
+  --color-industrial-600: #374151;
+  --color-industrial-500: #6b7280;
+  --color-industrial-accent: #06b6d4;
+  --color-industrial-accent-dark: #0891b2;
+  --color-status-healthy: #10b981;
+  --color-status-warning: #f59e0b;
+  --color-status-critical: #ef4444;
+  --color-status-offline: #6b7280;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--color-industrial-900);
+  color: #e5e7eb;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-industrial-800);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-industrial-600);
+  border-radius: 3px;
+}
+
+.card {
+  @apply bg-industrial-800 border border-industrial-600/30 rounded-xl p-5 shadow-lg;
+}
+
+.btn-primary {
+  @apply bg-industrial-accent hover:bg-industrial-accent-dark text-white px-4 py-2 rounded-lg font-medium transition-colors;
+}
+
+.btn-secondary {
+  @apply bg-industrial-700 hover:bg-industrial-600 text-gray-200 px-4 py-2 rounded-lg font-medium transition-colors border border-industrial-600/50;
+}
+
+.input-field {
+  @apply w-full bg-industrial-900 border border-industrial-600/50 rounded-lg px-4 py-2.5 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-industrial-accent transition-colors;
+}
+
+.status-healthy { @apply text-status-healthy; }
+.status-warning { @apply text-status-warning; }
+.status-critical { @apply text-status-critical; }
+.status-offline { @apply text-status-offline; }
+
+.badge-healthy { @apply bg-status-healthy/20 text-status-healthy border border-status-healthy/30; }
+.badge-warning { @apply bg-status-warning/20 text-status-warning border border-status-warning/30; }
+.badge-critical { @apply bg-status-critical/20 text-status-critical border border-status-critical/30; }
+.badge-offline { @apply bg-gray-500/20 text-gray-400 border border-gray-500/30; }
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
